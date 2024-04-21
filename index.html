@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
+    rel="stylesheet"
+    />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <title>Apple Shop</title>
+</head>
+<body>
+    <header>
+        <nav class="header__menu">
+            <div class="burger-icon">
+                <i class="ri-menu-line"></i>
+            </div>
+            <div class="search__box">
+                <i class="ri-search-line"></i>
+                <input type="text" placeholder="Buscar">
+            </div>
+            <div class="menu__icons">
+                <i class="ri-apple-line"></i>
+                <div class="cart-icon">
+                    <i class="ri-shopping-cart-line carrito-icon"></i>
+                    <span class="cart-count">0</span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="cover">
+        <div class="cover-overlay">
+            <h1>Apple</h1>
+            <span class="slogan">Tan sencillo. Tan pro.</span>
+        </div>
+    </section>
+
+    <main>
+        <h2 class="container margen">Apple Menu</h2>
+        <div class="menu-list">
+            <!-- <div class="menu-item">
+                <img src="img/D_NQ_NP_918178-MLA71783088444_092023-O.webp" alt="iphone 15">
+                <h5>Iphone 15</h5>
+            </div>
+            <div class="menu-item">
+                <img src="img/D_NQ_NP_918178-MLA71783088444_092023-O.webp" alt="iphone 15">
+                <h5>Iphone 15</h5>
+            </div>
+            <div class="menu-item">
+                <img src="img/D_NQ_NP_918178-MLA71783088444_092023-O.webp" alt="iphone 15">
+                <h5>Iphone 15</h5>
+            </div>
+            <div class="menu-item">
+                <img src="img/D_NQ_NP_918178-MLA71783088444_092023-O.webp" alt="iphone 15">
+                <h5>Iphone 15</h5>
+            </div>
+            <div class="menu-item">
+                <img src="img/D_NQ_NP_918178-MLA71783088444_092023-O.webp" alt="iphone 15">
+                <h5>Iphone 15</h5>
+            </div>
+            <div class="menu-item">
+                <img src="img/D_NQ_NP_918178-MLA71783088444_092023-O.webp" alt="iphone 15">
+                <h5>Iphone 15</h5>
+            </div>
+            <div class="menu-item">
+                <img src="img/D_NQ_NP_918178-MLA71783088444_092023-O.webp" alt="iphone 15">
+                <h5>Iphone 15</h5>
+            </div>
+            <div class="menu-item">
+                <img src="img/D_NQ_NP_918178-MLA71783088444_092023-O.webp" alt="iphone 15">
+                <h5>Iphone 15</h5>
+            </div> -->
+            <div class="logos">
+                <div class="logos-slide">
+                  <img src="./img/D_NQ_NP_2X_631001-MLA48035167069_102021-F.webp" />
+                  <img src="./img/D_NQ_NP_2X_823499-MLA53381321856_012023-F.webp" />
+                  <img src="./img/D_NQ_NP_2X_701613-MLA45714400544_042021-F.webp" />
+                  <img src="./img/D_NQ_NP_2X_735757-MLA72201410347_102023-F.webp" />
+                  <img src="./img/D_NQ_NP_2X_909202-MLA75217037309_032024-F.webp" />
+                  <img src="./img/D_NQ_NP_652817-MLA75551789182_042024-O.webp" />
+                  <img src="./img/D_NQ_NP_2X_838164-MLA52223468040_102022-F.webp" />
+                  <img src="./img/D_NQ_NP_652817-MLA75551789182_042024-O.webp" />
+                </div>
+                <div class="logos-slide">
+                  <img src="./img/D_NQ_NP_2X_749551-MLA46975166598_082021-F.webp" />
+                  <img src="./img/D_NQ_NP_656548-MLA46114829749_052021-O.webp" />
+                  <img src="./img/D_NQ_NP_789656-MLA73571835400_122023-O.webp" />
+                  <img src="./img/D_NQ_NP_2X_992056-MLA53127199389_012023-F.webp" />
+                  <img src="./img/D_NQ_NP_918178-MLA71783088444_092023-O.webp" />
+                  <img src="./img/pngegg (15).png" />
+                  <img src="./img/D_NQ_NP_2X_648428-MLA46516517286_062021-F.webp" />
+                  <img src="./img/D_NQ_NP_736168-MLA47781742030_102021-O.webp" />
+                </div>
+              </div>
+        </div>
+
+        <h2 class="container margen">Productos</h2>
+        <div class="productos" id="productos">
+            <!-- los productos estan en el js -->
+        </div>
+        <section class="container sidebar" id="sidebar">
+            <h2 class="titulo">Carrito Apple</h2>
+            <div class="sidebar-close">
+                <i class="ri-close-large-line"></i>
+            </div>
+            <div class="carrito cart-menu">
+                <div id="carrito-vacio">
+                    <h4>Tu carrito está vacío... </h4>
+                </div>
+                <div class="d-none "id="carrito-productos">
+                    <!-- Esto se rellena con JS  individual-cart-item --> 
+                </div>
+                <div class="sidebar-footer">
+                    <div class="total-amount cart-total">
+                        <h2>Total: <span id="carrito-total">$0</span></h2>
+                        <button id="vaciar-carrito-btn">🗑</button>
+                    </div>
+                    <button class="checkout-btn compra-realziada">Comprar</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src="./js/mani.js"></script>
+</body>
+</html>
