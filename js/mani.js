@@ -46,9 +46,14 @@ const productos = [
         img: "./img/D_NQ_NP_2X_838164-MLA52223468040_102022-F.webp"
     },
     {
-        titulo: "Ipad AIRRR",
-        precio: 1000,
-        img: "./img/D_NQ_NP_2X_838164-MLA52223468040_102022-F.webp"
+        titulo: "Macbook AIR PRO",
+        precio: 1900,
+        img: "./img/D_NQ_NP_2X_823499-MLA53381321856_012023-F.webp"
+    },
+    {
+        titulo: "Apple Watch",
+        precio: 400,
+        img: "./img/D_NQ_NP_2X_735757-MLA72201410347_102023-F.webp"
     },
 ];
 
