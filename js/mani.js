@@ -1,8 +1,5 @@
-/* ------carpi------- */
-
 let carrito =  JSON.parse(localStorage.getItem("carrito")) || [];
 console.log(carrito);
-
 
 const productos = [
     {
