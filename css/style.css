@@ -229,6 +229,10 @@ header {
     border-bottom-left-radius: 20px;
 }
 
+#carrito-productos {
+    max-height: 750px; /* Altura máxima del contenedor */
+    overflow-y: auto; /* Agrega un scroll vertical si es necesario */
+}
 .sidebar.open{
     right: 0;
 }

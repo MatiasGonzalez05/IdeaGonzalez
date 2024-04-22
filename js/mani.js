@@ -45,6 +45,11 @@ const productos = [
         precio: 2000,
         img: "./img/D_NQ_NP_2X_838164-MLA52223468040_102022-F.webp"
     },
+    {
+        titulo: "Ipad AIRRR",
+        precio: 1000,
+        img: "./img/D_NQ_NP_2X_838164-MLA52223468040_102022-F.webp"
+    },
 ];
 
 const contenedorProductos = document.querySelector('#productos');
