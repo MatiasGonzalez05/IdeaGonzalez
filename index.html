@@ -12,18 +12,26 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <title>Apple Shop</title>
 </head>
-<body>
+<body class="light">
     <header>
         <nav class="header__menu">
+
             <div class="burger-icon">
-                <i class="ri-menu-line"></i>
+                <i class="ri-apple-line"><a href="index.html"></a></i>
             </div>
-            <div class="search__box">
+
+            <div class="search__box" id="searchBar">
                 <i class="ri-search-line"></i>
                 <input type="text" placeholder="Buscar">
             </div>
+            <input type="checkbox" id="toggle">
+            <label class="toggle" for="toggle">
+                <i class="ri-sun-line"></i>
+                <i class="ri-moon-line"></i>
+                <span class="ball"></span>
+            </label>
             <div class="menu__icons">
-                <i class="ri-apple-line"></i>
+                
                 <div class="cart-icon">
                     <i class="ri-shopping-cart-line carrito-icon"></i>
                     <span class="cart-count">0</span>
@@ -67,9 +75,39 @@
         </div>
 
         <h2 class="container margen">Productos</h2>
+        <div class="buttons">
+            <button id="todos" class="btn-filter boton-categoria active" >All</button>
+            <button id="celulares" class="btn-filter boton-categoria" >Celulares</button>
+            <button id="vision-pro" class="btn-filter boton-categoria" >Vision Pro</button>
+            <button id="ipad" class="btn-filter boton-categoria" >Ipad</button>
+            <button id="macbook" class="btn-filter boton-categoria" >MacBook</button>
+            <button id="watch" class="btn-filter boton-categoria" >Watch</button>
+        </div>
         <div class="productos" id="productos">
+            
             <!-- los productos estan en el js -->
         </div>
+
+        <!-- <section class="mobile-menu container" id="mobile-menu">
+            
+            <div class="mobile-menu-close">
+                <i class="ri-close-large-line"></i>
+            </div>
+            <ul>
+                <li>
+                    <button class="boton-categorias" id="celulares">Celulares</a></button>
+                </li>
+                <li>
+                    <button class="boton-categorias" id="notebooks">NoteBooks</a></button>
+                </li>
+                <li>
+                    <button class="boton-categorias" id="tablets">Tablets</a></button>
+                </li>
+                <li>
+                    <button class="boton-categorias" id="relojes">Relojes</a></button>
+                </li>
+            </ul>
+        </section> -->
         <section class="container sidebar" id="sidebar">
             <h2 class="titulo">Carrito Apple</h2>
             <div class="sidebar-close">
@@ -95,6 +133,8 @@
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
-    <script src="./js/mani.js"></script>
+
+    <script src="./js/darkmode.js"></script>
+    <script src="./js/main.js"></script>
 </body>
 </html>

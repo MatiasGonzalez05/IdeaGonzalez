@@ -1,58 +1,13 @@
 let carrito =  JSON.parse(localStorage.getItem("carrito")) || [];
-console.log(carrito);
 
-const productos = [
-    {
-        titulo: "Iphone 15 PRO",
-        precio: 1150,
-        img: "./img/D_NQ_NP_918178-MLA71783088444_092023-O.webp"
-    },
-    {
-        titulo: "Iphone 14 PRO",
-        precio: 900,
-        img: "./img/D_NQ_NP_904279-MLU70351459718_072023-O.webp"
-    },
-    {
-        titulo: "Iphone 13",
-        precio: 700,
-        img: "./img/D_NQ_NP_736168-MLA47781742030_102021-O.webp"
-    },
-    {
-        titulo: "Iphone 12",
-        precio: 520,
-        img: "./img/D_NQ_NP_789656-MLA73571835400_122023-O.webp"
-    },
-    {
-        titulo: "Iphone 11",
-        precio: 450,
-        img: "./img/D_NQ_NP_656548-MLA46114829749_052021-O.webp"
-    },
-    {
-        titulo: "Iphone XR",
-        precio: 320,
-        img: "./img/D_NQ_NP_652817-MLA75551789182_042024-O.webp"
-    },
-    {
-        titulo: "Vision PRO",
-        precio: 5000,
-        img: "./img/D_NQ_NP_2X_909202-MLA75217037309_032024-F.webp"
-    },
-    {
-        titulo: "Ipad AIR",
-        precio: 2000,
-        img: "./img/D_NQ_NP_2X_838164-MLA52223468040_102022-F.webp"
-    },
-    {
-        titulo: "Macbook AIR PRO",
-        precio: 1900,
-        img: "./img/D_NQ_NP_2X_823499-MLA53381321856_012023-F.webp"
-    },
-    {
-        titulo: "Apple Watch",
-        precio: 400,
-        img: "./img/D_NQ_NP_2X_735757-MLA72201410347_102023-F.webp"
-    },
-];
+fetch("../data/productos.json")
+    .then(res => res.json())
+    .then(data => {
+        productos = data;
+        mostrarProductos(productos);
+    })
+
+
 
 const contenedorProductos = document.querySelector('#productos');
 const carritoVacio = document.querySelector("#carrito-vacio");
@@ -60,30 +15,69 @@ const carritoProductos = document.querySelector("#carrito-productos");
 const carritoTotal = document.querySelector("#carrito-total");
 const numeroDelCarrito = document.querySelector(".cart-count");
 const botonComprar = document.querySelector('.checkout-btn');
+const botonesCategorias = document.querySelectorAll(".boton-categoria")
 
-productos.forEach((producto) => {
-    const div = document.createElement("div");
-    div.classList.add("card");
-    div.innerHTML = `
-        <img class="img-producto" src="${producto.img}" alt="${producto.titulo}">
-        <h4 class="card-title">${producto.titulo}</h4>
-        <div class="card-price">
-            <p class="price">U$D ${producto.precio}</p>
-        </div>
-    `;
+const mostrarProductos = (productosElegidos) => {
 
-    const btn = document.createElement("button");
-    btn.classList.add("btn-plus");
-    btn.innerText = "Agregar al carrito";
-
-    btn.addEventListener("click", () => {
-        agregarAlCarrito(producto);
+    contenedorProductos.innerHTML = "";
+    productosElegidos.forEach((producto) => {
+        const div = document.createElement("div");
+        div.classList.add("card");
+        div.innerHTML = `
+            <img src="${producto.img}" alt="${producto.titulo}">
+            <h4 class="card-title">${producto.titulo}</h4>
+            <div class="card-price">
+                <p class="price">U$D ${producto.precio}</p>
+            </div>
+            <a href="../producto.html?id=${producto.id}" class="btn-plus">Ver Mas</a>
+        `;
+        
+        const btn = document.createElement("button");
+        btn.classList.add("btn-plus");
+        btn.innerText = "+";
+    
+        btn.addEventListener("click", () => {
+            agregarAlCarrito(producto);
+        })
+        
+        div.append(btn);
+        contenedorProductos.append(div)
     })
+}
 
-    div.append(btn);
-    contenedorProductos.append(div)
-})
+/* botonesCategorias.forEach(boton => {
+    boton.addEventListener("click", (e) => {
+        botonesCategorias.forEach(boton => boton.classList.remove("active"));
+        e.currentTarget.classList.add("active");
+    
+        if (e.currentTarget.id != "todos") {
+            const productoCategoria = productos.find(producto => producto.categoria.id === e.currentTarget.id);
+            tituloPrincipal.innerText = productoCategoria.categoria.nombre;
+            const productosBoton = productos.filter(producto => producto.categoria.id === e.currentTarget.id);
+            mostrarProductos(productosBoton);
+        } else {
+            tituloPrincipal.innerText = "Todos los productos";
+            mostrarProductos(productos);
+        }
+    });
+}); */
+botonesCategorias.forEach(boton => {
+    boton.addEventListener("click", (e) => {
+        botonesCategorias.forEach(boton => boton.classList.remove("active"));
+        e.currentTarget.classList.add("active");
+    
+        const categoriaSeleccionada = e.currentTarget.id;
+        
+        if (categoriaSeleccionada !== "todos") {
+            const productosFiltrados = productos.filter(producto => producto.categoria.id === categoriaSeleccionada);
+            mostrarProductos(productosFiltrados);
+        } else {
+            mostrarProductos(productos);
+        }
+    });
+});
 
+    
 function actualizarCarrito() {
     const carritoProductos = document.querySelector("#carrito-productos");
     const carritoTotal = document.querySelector("#carrito-total");
@@ -91,10 +85,11 @@ function actualizarCarrito() {
     if (carrito.length === 0) {
         carritoVacio.classList.remove("d-none");
         carritoProductos.classList.add("d-none");
+        vaciarCarritoBtn.classList.add("d-none");
     } else {
         carritoVacio.classList.add("d-none");
         carritoProductos.classList.remove("d-none");
-        
+        vaciarCarritoBtn.classList.remove("d-none");
         carritoProductos.innerHTML = "";
 
         let total = 0;
@@ -107,7 +102,7 @@ function actualizarCarrito() {
                 <h4 class="titulo-producto-sidebar contenido-producto">${producto.titulo}</h4>
                 <p class="precio-sidebar contenido-producto">$ ${(producto.precio * producto.cantidad).toFixed(2)}</p>
             `;
-
+            
             const btnRestar = document.createElement("button");
             btnRestar.classList.add("carrito-producto-restar", "contenedor-sumar-restar");
             btnRestar.innerText = "-";
@@ -144,6 +139,7 @@ function actualizarCarrito() {
     localStorage.setItem("carrito", JSON.stringify(carrito));
 }
 
+
 /* se llama cuando se agrega un producto al carro */
 const agregarAlCarrito = (producto) => {
     const itemEncontrado = carrito.find(item => item.titulo === producto.titulo);
@@ -163,6 +159,7 @@ const agregarAlCarrito = (producto) => {
             background: "#202020",
         },
     }).showToast();
+    localStorage.setItem("carrito", JSON.stringify(carrito));
 }
 
 const borrarDelCarrito = (producto) => {
@@ -277,3 +274,17 @@ const sidebarCloseIcon = document.querySelector(".sidebar-close");
 sidebarCloseIcon.addEventListener("click", ocultarSidebar);
 
 actualizarCarrito();
+
+/* boton hamburguesa */
+/* const burgerIcon = document.querySelector('.burger-icon');
+const mobileMenu = document.getElementById('mobile-menu');
+const mobileMenuClose = document.querySelector('.mobile-menu-close');
+
+burgerIcon.addEventListener('click', () => {
+    mobileMenu.classList.toggle('open'); // Alterna la clase 'open' en el mobile-menu al hacer clic en el ícono de hamburguesa
+});
+
+mobileMenuClose.addEventListener('click', () => {
+    mobileMenu.classList.remove('open'); // Cierra el menú móvil al hacer clic en el botón de cierre
+}); */
+
