@@ -9,8 +9,6 @@ toggle.addEventListener("change", () => {
         // Cambiar de modo oscuro a modo claro
         body.classList.remove("dark");
         body.classList.toggle("light"); 
-        
-        
     } else {
         // Cambiar de modo claro a modo oscuro
         body.classList.remove("light");

@@ -45,22 +45,6 @@ const mostrarProductos = (productosElegidos) => {
     })
 }
 
-/* botonesCategorias.forEach(boton => {
-    boton.addEventListener("click", (e) => {
-        botonesCategorias.forEach(boton => boton.classList.remove("active"));
-        e.currentTarget.classList.add("active");
-    
-        if (e.currentTarget.id != "todos") {
-            const productoCategoria = productos.find(producto => producto.categoria.id === e.currentTarget.id);
-            tituloPrincipal.innerText = productoCategoria.categoria.nombre;
-            const productosBoton = productos.filter(producto => producto.categoria.id === e.currentTarget.id);
-            mostrarProductos(productosBoton);
-        } else {
-            tituloPrincipal.innerText = "Todos los productos";
-            mostrarProductos(productos);
-        }
-    });
-}); */
 botonesCategorias.forEach(boton => {
     boton.addEventListener("click", (e) => {
         botonesCategorias.forEach(boton => boton.classList.remove("active"));
@@ -107,7 +91,7 @@ function actualizarCarrito() {
             btnRestar.classList.add("carrito-producto-restar", "contenedor-sumar-restar");
             btnRestar.innerText = "-";
             btnRestar.addEventListener("click", () => {
-                restarDelCarrito(producto); // Cambiar a función para restar del carrito
+                restarDelCarrito(producto); 
             })
             div.append(btnRestar);
 
@@ -120,7 +104,7 @@ function actualizarCarrito() {
             btnSumar.classList.add("carrito-producto-sumar", "contenedor-sumar-restar");
             btnSumar.innerText = "+";
             btnSumar.addEventListener("click", () => {
-                sumarDelCarrito(producto); // Cambiar a función para agregar al carrito
+                sumarDelCarrito(producto); 
             })
             div.append(btnSumar);
 
@@ -275,16 +259,12 @@ sidebarCloseIcon.addEventListener("click", ocultarSidebar);
 
 actualizarCarrito();
 
-/* boton hamburguesa */
-/* const burgerIcon = document.querySelector('.burger-icon');
-const mobileMenu = document.getElementById('mobile-menu');
-const mobileMenuClose = document.querySelector('.mobile-menu-close');
-
-burgerIcon.addEventListener('click', () => {
-    mobileMenu.classList.toggle('open'); // Alterna la clase 'open' en el mobile-menu al hacer clic en el ícono de hamburguesa
-});
-
-mobileMenuClose.addEventListener('click', () => {
-    mobileMenu.classList.remove('open'); // Cierra el menú móvil al hacer clic en el botón de cierre
-}); */
+/* search */
+/* document.addEventListener('keyup', e => {
+    if (e.target.matches('#searchBar')){
+        document.querySelectorAll('#productos').forEach(producto => {
+            producto.textContent.toLocaleLowerCase().includes(e.target.value) ? producto.classList.remove('filto') : producto.classList.add('filtro');
+        })
+    }
+}) */
 

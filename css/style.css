@@ -27,21 +27,40 @@ body {
 
 header {
     padding: 1rem 0;
+    background-color: var(--primary-color);
+    width: 100%;
+    border-radius: 5px;
+    margin-bottom: 10px;
 }
 
 .header__menu {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
     gap: 20px;
 }
 
-.burger-icon i {
+.apple-store a{
     padding: 10px;
-    background-color: var(--primary-color);
     color: var(--accent-color);
     border-radius: 5px;
     cursor: pointer;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.foto-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 50%;
+    left: 70px;
+}
+
+.filtro {
+    display: none;
 }
 
 .search__box {
@@ -75,6 +94,10 @@ header {
     border-radius: 5px;
     cursor: pointer;
     background: var(--decent-color);
+}
+
+.menu__icons i:hover {
+    color: #5c5c5c;
 }
 
 .carrito--icon {
@@ -544,6 +567,10 @@ button.checkout-btn:hover {
     z-index: 1;
 }
 
+.toggle i:hover {
+    color: #5c5c5c;
+}
+
 .toggle .ball {
     display: flex;
     position: absolute;
@@ -602,6 +629,8 @@ input#toggle {
 }
 
 
+
+
 /* pagina producto */
 .container-producto {
     display: flex;
@@ -623,6 +652,7 @@ input#toggle {
 
 .card-producto {
     height: 800px;
+    background-color: var(--accent-color);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -651,3 +681,135 @@ input#toggle {
     margin-right: 50px;
 }
 
+.btn-volver {
+    width: 100%;
+    margin-bottom: 20px;
+    background: var(--secondary-color);
+    
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.btn-volver a {
+    text-decoration: none;
+    color: var(--accent-color);
+}
+
+button.btn-volver:hover {
+    background-color: #5c5c5c;
+}
+
+/* Media queries para tablet */
+@media only screen and (max-width: 850px) {
+    nav {
+        display: flex;
+    }
+
+    .apple-store a{
+        display: flex;
+        font-size: 13px;
+        text-align:justify;
+        margin: auto;
+        
+    }
+    .foto-icon {
+        left: 50px;
+    }
+
+    .carrito-icon {
+        margin-right: 10px;
+    }
+
+    #carrito-productos {
+        max-height: 700px;
+    }
+}
+
+@media screen and (max-width: 710px) {
+    .productos {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .container-producto {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+
+    .img-producto {
+        display: flex;
+        width: 300px;
+        height: 300px;
+        object-fit: contain;
+    }
+
+    div.contenedor-descripcion {
+        margin-left: 30px;
+    }
+
+    .descripcion-producto {
+        text-align: justify;
+        margin-bottom: 10px;
+    }
+
+    .header__menu {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .foto-icon {
+        display: flex;
+        align-items: center;
+        left: -30px;
+    }
+
+    .toggle {
+        display: none;
+    }
+
+    .card {
+        width: 200px;
+        margin: 10px 10px;
+    }
+
+    
+    .card img {
+        width: 200px;
+        height: 200px;
+    }
+}
+
+/* Media queries para celular */
+@media only screen and (max-width: 536px) {
+    .apple-store a{
+        font-size: 10px;
+    }
+
+    .btn-filter {
+        margin: 10px;
+    }
+    .buttons {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    .foto-icon {
+        display: flex;
+        align-items: center;
+        left: -20px;
+    }
+    .card {
+        width: 250px;
+        margin: 10px 10px;
+    }
+
+    .card img {
+        width: 300px;
+        height: 300px;
+    }
+}

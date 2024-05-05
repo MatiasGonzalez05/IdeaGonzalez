@@ -12,15 +12,14 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <title>Producto</title>
 </head>
-<body>
+<body class="light">
     <header>
         <nav class="header__menu">
-            <div class="burger-icon">
-                <i class="ri-apple-line"></i>
+            <div class="apple-store">
+                <a href="index.html">Apple Store</a>
             </div>
-            <div class="search__box">
-                <i class="ri-search-line"></i>
-                <input type="text" placeholder="Buscar">
+            <div class="foto-icon">
+                <img src="img/icons8-mac-os-50.png" alt="img apple">
             </div>
             <input type="checkbox" id="toggle">
             <label class="toggle" for="toggle">
@@ -56,13 +55,13 @@
             <div class="sidebar-footer">
                 <div class="total-amount cart-total">
                     <h2>Total: <span id="carrito-total">$0</span></h2>
-                    <button id="vaciar-carrito-btn">🗑</button>
                 </div>
-                <button class="checkout-btn compra-realziada">Comprar</button>
+                <button class=" btn-volver"><a href="./index.html">Volver a Inicio</a></button>
             </div>
         </div>
     </section>
 
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="./js/darkmode.js"></script>
     <script src="./js/producto.js"></script>
 </body>
