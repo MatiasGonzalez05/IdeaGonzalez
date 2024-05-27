@@ -30,7 +30,7 @@ const mostrarProductos = (productosElegidos) => {
             <div class="card-price">
                 <p class="price">U$D ${producto.precio}</p>
             </div>
-            <a href="/producto.html?id=${producto.id}" class="btn-plus">Ver Mas</a>
+            <a href="producto.html?id=${producto.id}" class="btn-plus">Ver Mas</a>
         `;
         
         const btn = document.createElement("button");
