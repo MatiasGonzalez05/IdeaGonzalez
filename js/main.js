@@ -1,7 +1,7 @@
 let carrito =  JSON.parse(localStorage.getItem("carrito")) || [];
 let productos = []
 
-fetch("./data/productos.json")
+fetch("https://api-productos-nzlk.onrender.com/productos")
     .then(res => res.json())
     .then(data => {
         productos = data;
