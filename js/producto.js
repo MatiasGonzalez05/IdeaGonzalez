@@ -1,7 +1,7 @@
 const urlParams = new URLSearchParams(window.location.search);
 const idParam = urlParams.get("id");
 
-fetch("../data/productos.json")
+fetch("./data/productos.json")
     .then(res => res.json())
     .then(data => {
         const producto = data.find(item => item.id === parseInt(idParam));
