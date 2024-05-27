@@ -20,7 +20,7 @@ const mostrarInfoProducto = (producto) => {
     const div = document.createElement("div");
     div.innerHTML = `
         <div class="card-producto">
-            <a class="link-volver-inicio" href="./index.html"><</a>
+            <a class="link-volver-inicio" href="/"><</a>
             <div class="container-producto">
                 <img class="img-producto" src="${producto.img}" />
                 <div class="contenedor-descripcion">  
